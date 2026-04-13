@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-}
+} //Arranca la app , llama a myapp const = optimizacion (no cambia nada en ejecucion)
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { //StatelessWidget = no cambia su estado , define la app general
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context) { //Build context context es informacion donde esta el widget dentro de la app.
+    //Widget es el tipo de dato que devuelve la función, build es el metodo mas importante de flutter,construye la interfaz de usuario.
+                                        //cada vez que cambies algo con setState(), el build() se ejecuta de nuevo.
+    return MaterialApp( //Widget del sistema que se encarga del estilo general,navegacion,tema etc.
       title: 'Proyecto de Juan',
       theme: ThemeData(
         // This is the theme of your application.
@@ -28,15 +30,15 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: Colors.green),
       ),
       home: const MyHomePage(title: 'Proyecto de Juan'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatefulWidget { //Creamos un widget que puede cambiar 
+  const MyHomePage({super.key, required this.title}); //Constructor , cuando pases el widget tienes que pasar un titulo,
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -47,10 +49,11 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
+  final String title; //defines una variable que es un string, y que no cambia despues.
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState(); //Un StateFulWidget no tiene estado por si mismo , necesita crear un objeto a parte que lo maneje,esta linea hace eso
+                                                              //crea el objeto que maneja el estado.
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -68,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //Metodo que construye la interfaz de usuario
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -85,10 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Center( //lo centra todo
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: Column( //organiza elementos en vertical.
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -103,9 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
           mainAxisAlignment: .center,
-          children: [
+          children: [ //lista de widgets dentro de la columna
             const Text('You have pushed the button this many times:'),
-            Text(
+            Text( //lo muestra en la pantalla,es decir lo ve el usuario
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
