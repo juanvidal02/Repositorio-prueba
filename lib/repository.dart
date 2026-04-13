@@ -1,7 +1,6 @@
 class User {
   final int id;
-  final String name;
-
+  final String name; //Comentario probando
   User({required this.id, required this.name});
 
   // Para convertir la respuesta JSON de una API
