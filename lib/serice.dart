@@ -8,6 +8,7 @@ class CentroService {
 
 Future<Map<String, dynamic>> pedirDatos() async {
   // await dice: "Espero a que el repartidor llegue"
-  var respuesta = await repartidor.traerPaquete(); 
+  var centroService = CentroService();
+  var respuesta = await centroService.fetchCentroDesdeInternet("1"); 
   return respuesta;
 }
